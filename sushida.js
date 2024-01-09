@@ -17,21 +17,21 @@ typeInput.addEventListener("input", () => {
     const displayArray = typeDisplay.querySelectorAll("span");
     const InputArray = typeInput.value.split("");
     let correct = true;
-    displayArray.forEach((randomspan, index) => {
+    displayArray.forEach((randomSpan, index) => {
         if ((InputArray[index] == null)) {
             //入力がないときは判定しない
-            randomspan.classList.remove("correct");
-            randomspan.classList.remove("incorrect");
+            randomSpan.classList.remove("correct");
+            randomSpan.classList.remove("incorrect");
             correct = false;
         }
         //正解
-        else if (randomspan.innerText == InputArray[index]) {
-            randomspan.classList.add("correct");
-            randomspan.classList.remove("incorrect");
+        else if (randomSpan.innerText == InputArray[index]) {
+            randomSpan.classList.add("correct");
+            randomSpan.classList.remove("incorrect");
             //不正解
         } else {
-            randomspan.classList.add("incorrect");
-            randomspan.classList.remove("correct");
+            randomSpan.classList.add("incorrect");
+            randomSpan.classList.remove("correct");
 
             //不正解音
             incorrectSound.volume = 0.4;
@@ -44,7 +44,7 @@ typeInput.addEventListener("input", () => {
     if (correct == true) {
         correctSound.play();
         correctSound.currentTime = 0;
-        nextdisplay();
+        nextDisplay();
     }
 });
 
@@ -56,16 +56,16 @@ async function getRandom() {
 }
 
 //ランダムな文章を取得して、表示する
-async function nextdisplay() {
+async function nextDisplay() {
     const random = await getRandom();
     typeDisplay.innerText = "";
 
     //文章を一文字ずつ分解して、spanタグを生成する
     let text = random.split("");
     text.forEach((random) => {
-        const randomspan = document.createElement("span");
-        randomspan.innerText = random;
-        typeDisplay.appendChild(randomspan);
+        const randomSpan = document.createElement("span");
+        randomSpan.innerText = random;
+        typeDisplay.appendChild(randomSpan);
     });
 
     //テキストボックスの中身を消す
@@ -74,16 +74,16 @@ async function nextdisplay() {
 }
 
 let StartTime;
-let basetime = 100;//時間表示
+let Basetime = 50;//時間表示
 let Interval;
 
 //タイマー
 function StartTimer() {
     clearInterval(Interval);
-    timer.innerText = basetime;
+    timer.innerText = Basetime;
     StartTime = new Date();
     Interval = setInterval(() => {
-        timer.innerText = basetime - getTimerTime();
+        timer.innerText = Basetime - getTimerTime();
         if (timer.innerText <= 0) TimeUp();
     }, 1000);
 }
@@ -95,7 +95,7 @@ function getTimerTime() {
 
 //問題の切り替え
 function TimeUp() {
-    nextdisplay();
+    nextDisplay();
 }
 
-nextdisplay();
+nextDisplay();
