@@ -17,13 +17,13 @@ body {
 
 .container {
     display: none;
-    background-color: rgb(93, 183, 235);
+    background-color: rgb(87, 177, 233);
     font-size: 2.4rem;
     font-weight: 600;
     padding: 4rem;
     border-radius: 0.5rem;
-    width: 62.5rem;
-    min-height: 37.5rem;
+    width: 1500px;
+    min-height: 90px;
     max-width: 90%;
     box-shadow: 1px 5px 6px rgb(80, 80, 80);
 }
@@ -82,6 +82,8 @@ body {
     position: relative;/*相対位置指定*/
     text-align: center; /**/
     top: 0px;/*上から150ピクセルの位置に移動*/
+    color: #fff;
+    text-shadow: 2px 5px 6px rgb(80, 80, 80);
 }
 
 #qs-number{
@@ -102,7 +104,7 @@ button {
 
 button.btn-border {
     border: 2px solid #000;
-    border-radius: 0;
+    border-radius: 0.5rem;
     background: #fff;
   }
   

@@ -13,9 +13,14 @@ const typeSound = new Audio("./audio/typing-sound.mp3");
 const incorrectSound = new Audio("./audio/incorrect.mp3");
 const correctSound = new Audio("./audio/correct.mp3");
 
+
 let gameCount = 0;
 let score = 0;
 let Interval;
+let StartTime;
+//難易度変更
+let baseCount = 5;//問題数
+let Basetime = 3;//時間表示 
 
 function startGame() {
     // タイトル画面を非表示にし、ゲーム画面を表示
@@ -73,7 +78,8 @@ function startGame() {
     async function nextDisplay() {
         const random = await getRandom();
         typeDisplay.innerText = "";
-        document.getElementById("qs-number").innerText = "問題" + (gameCount + 1);
+        document.getElementById("qs-number").innerText =
+         "Question" + (gameCount + 1) + " " + "/" + " " + baseCount;
         //文章を一文字ずつ分解して、spanタグを生成する
         let text = random.split("");
         text.forEach((random) => {
@@ -87,9 +93,6 @@ function startGame() {
         StartTimer();
     }
 
-    let StartTime;
-    let Basetime = 30;//時間表示
-
     //タイマー
     function StartTimer() {
         clearInterval(Interval);
@@ -99,7 +102,7 @@ function startGame() {
             timer.innerText = Basetime - getTimerTime();
             if (timer.innerText <= 0) {
                 gameCount++;
-                if (gameCount >= 5) {  // 問題を解いた回数がnに達したらゲームを終了
+                if (gameCount >= baseCount) {  // 問題を解いた回数がnに達したらゲームを終了
                     endGame();
                     return;
                 } TimeUp();
@@ -118,10 +121,10 @@ function startGame() {
 }
 //問題が終わったら終了
 function endGame() {
-    const resultMessage = `終了！あなたの正解数は${score}/${gameCount}です！`;//リザルト
+    const resultMessage = `Your score is ${score}/${gameCount}!`;//リザルト
     document.getElementById('title-screen').style.display = 'block';//リザルト画面を表示
     document.getElementById('title-screen').innerHTML = `<h2>${resultMessage}</h2>`;//点数
-    document.getElementById('title-screen').innerHTML += '<button onclick="restartGame()">もう一度プレイ</button>';//リスタートボタン
+    document.getElementById('title-screen').innerHTML += '<button href="#" class="btn btn-border" onclick="restartGame()">Retry</button>';//リスタートボタン
     document.getElementById('timer').style.display = 'none'; // タイマーを非表示にする
     document.getElementById('qs-number').style.display = 'none';
     document.querySelector('.container').style.display = 'none';//ゲーム画面の非表示
