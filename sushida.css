@@ -16,13 +16,14 @@ body {
 }
 
 .container {
+    display: none;
     background-color: rgb(93, 183, 235);
     font-size: 2.4rem;
     font-weight: 600;
     padding: 4rem;
     border-radius: 0.5rem;
-    width: 1000px;
-    min-height: 600px;
+    width: 62.5rem;
+    min-height: 37.5rem;
     max-width: 90%;
     box-shadow: 1px 5px 6px rgb(80, 80, 80);
 }
@@ -33,6 +34,7 @@ body {
 }
 
 .timer {
+    display: none;/*要素を非表示にする*/
     position: absolute;
     top: 2rem;
     font-size: 5rem;
@@ -41,11 +43,13 @@ body {
 }
 
 .type-display {
+    display: none;/*要素を非表示にする*/
     margin-bottom: 1rem;
     margin-left: 1rem;
 }
 
 .type-Input {
+    display: none;/*要素を非表示にする*/
     background: 1rem;
     border: 2px solid rgb(158, 52, 52);
     outline: none;
@@ -63,11 +67,34 @@ body {
 }
 
 .correct {
-
     color: green;
 }
 
 .incorrect {
     color: red;
     text-decoration: underline;
+}
+
+#title-screen {
+    text-align: center;/*テキストを中央揃え*/
+    margin-top: 0px;
+    font-size: 40px;/*フォントサイズを40ピクセル*/
+    position: relative;/*相対位置指定*/
+    text-align: center; /**/
+    top: 0px;/*上から150ピクセルの位置に移動*/
+}
+
+#qs-number{
+    display: none;
+    position: absolute;
+    left: 4rem;
+    top: 2rem;
+    font-size: 5rem;
+    font-weight: bold;
+    color: rgb(202, 87, 87)
+}
+
+button {
+    padding: 0.625rem 1.25rem;/*ボタンの内側に上下左右10ピクセルの余白を設定*/
+    font-size: 1.875rem;/*フォントサイズを30ピクセルに*/
 }
