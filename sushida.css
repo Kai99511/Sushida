@@ -97,4 +97,16 @@ body {
 button {
     padding: 0.625rem 1.25rem;/*ボタンの内側に上下左右10ピクセルの余白を設定*/
     font-size: 1.875rem;/*フォントサイズを30ピクセルに*/
+    color: rgb(202, 87, 87)
 }
+
+button.btn-border {
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+  }
+  
+ button.btn-border:hover {
+    color: #fff;
+    background: #000;
+  }
