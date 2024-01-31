@@ -20,7 +20,7 @@ let Interval;
 let StartTime;
 //難易度変更
 let baseCount = 5;//問題数
-let Basetime = 3;//時間表示 
+let Basetime = 30;//時間表示 
 
 function startGame() {
     // タイトル画面を非表示にし、ゲーム画面を表示
